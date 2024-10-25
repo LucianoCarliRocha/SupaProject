@@ -84,12 +84,27 @@ WSGI_APPLICATION = 'aula01.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DB_URL = config('DB_URL', default=os.environ.get('DB_URL', None))
+DB_NAME = config('DB_NAME', default=os.environ.get('DB_NAME', None))
+DB_USER = config('DB_USER', default=os.environ.get('DB_URL', None))
+DB_PASSWORD = config('DB_PASSWORD', default=os.environ.get('DB_URL', None))
+DB_HOST = config('DB_HOST', default=os.environ.get('DB_URL', None))
+DB_PORT = config('DB_PORT', default=os.environ.get('DB_URL', None))
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=DB_URL
+#         )
+# }
 DATABASES = {
-    'default': dj_database_url.config(
-        default=DB_URL
-        )
-}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
 
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
