@@ -101,7 +101,7 @@ DATABASES = {
         'USER': DB_USER,
         'PASSWORD': DB_PASSWORD,
         'HOST': DB_HOST,
-        'PORT': DB_PORT,
+        'PORT': 6543,
 
     }
 }
